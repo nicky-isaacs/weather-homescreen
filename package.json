@@ -1,8 +1,8 @@
 {
-  "name": "nest-typescript-starter",
+  "name": "weather-homepage",
   "private": true,
   "version": "1.0.0",
-  "description": "Nest TypeScript starter repository",
+  "description": "Weather Homepage Project",
   "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
