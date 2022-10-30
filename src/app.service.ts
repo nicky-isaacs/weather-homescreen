@@ -7,10 +7,10 @@ import { AxiosResponse } from 'axios';
 export class AppService {
   constructor(private readonly httpService: HttpService) {}
 
-  async getGIFData(): Promise<NodeJS.ReadableStream> {
+  async getTIFData(): Promise<NodeJS.ReadableStream> {
     const response: AxiosResponse<NodeJS.ReadableStream> = await firstValueFrom(
       this.httpService.get<NodeJS.ReadableStream>(
-        'https://cdn.star.nesdis.noaa.gov/GOES16/ABI/SECTOR/taw/GEOCOLOR/GOES16-TAW-GEOCOLOR-900x540.gif',
+        'https://cdn.star.nesdis.noaa.gov/GOES16/ABI/FD/GEOCOLOR/GOES16-ABI-FD-GEOCOLOR-10848x10848.tif',
         { responseType: 'stream' },
       ),
     );

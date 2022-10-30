@@ -1,4 +1,4 @@
-import { Controller, Get, Header, Res, StreamableFile } from '@nestjs/common';
+import { Controller, Get, Header, StreamableFile } from '@nestjs/common';
 import { AppService } from './app.service';
 import { Readable } from 'stream';
 
@@ -6,10 +6,10 @@ import { Readable } from 'stream';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get('/gif_data.gif')
-  @Header('Content-Type', 'image/gif')
+  @Get('/image_data.tif')
+  @Header('Content-Type', 'image/tif')
   async getGIFData() {
-    const body = await this.appService.getGIFData();
+    const body = await this.appService.getTIFData();
 
     return new StreamableFile(new Readable().wrap(body));
   }
