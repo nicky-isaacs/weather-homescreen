@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { firstValueFrom } from 'rxjs';
 import { AxiosResponse } from 'axios';
-
+import { createReadStream } from 'fs';
 @Injectable()
 export class AppService {
   constructor(private readonly httpService: HttpService) {}
@@ -15,6 +15,10 @@ export class AppService {
       ),
     );
     return response.data;
+  }
+
+  getErrorData(): NodeJS.ReadableStream {
+    return createReadStream(__dirname + '/public/error.jpg');
   }
 
   getHello() {
