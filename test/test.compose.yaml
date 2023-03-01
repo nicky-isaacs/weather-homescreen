@@ -1,0 +1,10 @@
+services:
+  db:
+    image: postgres
+    tmpfs: '/var'
+    environment:
+      - POSTGRES_DB=test_db
+      - POSTGRES_PASSWORD=test_password
+      - POSTGRES_USER=test_user
+    ports:
+      - "54320:5432"
