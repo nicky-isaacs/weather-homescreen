@@ -4,8 +4,8 @@ import {
   Header,
   Req,
   StreamableFile,
-  Request,
-} from '@nestjs/common';
+  Request, Post
+} from "@nestjs/common";
 import { AppService } from './app.service';
 import { Readable } from 'stream';
 
@@ -31,8 +31,14 @@ export class AppController {
     return new StreamableFile(new Readable().wrap(body));
   }
 
-  @Get()
-  getHello() {
-    return this.appService.getHello();
+  @Get('/users')
+  getUsers() {
+    return this.appService.getUsers()
+  }
+
+  @Post('/users')
+  postUsers() {
+    const name=crypto.randomUUID()
+    return this.appService.createUser(name)
   }
 }
